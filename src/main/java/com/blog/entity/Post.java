@@ -18,17 +18,18 @@ public class Post {
     private String anons;
     private String full_text;
     private int views;
-
+    private String fileName;
+    
     public Post() {
     }
-    
-    public Post(String title, String anons, String full_text) {
+
+    public Post(String title, String anons, String full_text,String fileName) {
         this.title = title;
         this.anons = anons;
         this.full_text = full_text;
+        this.fileName = fileName;
     }
 
-    
     public Long getId() {
         return id;
     }
@@ -68,5 +69,14 @@ public class Post {
     public void setViews(int views) {
         this.views = views;
     }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+    
 
 }
