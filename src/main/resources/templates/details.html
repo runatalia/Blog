@@ -16,7 +16,7 @@
             <div th:each = "el : ${post}" class = "alert alert-info mt-2">
                 <h3 th:text = "${el.title}"/>
                 <p th:text = "${el.full_text}"/>
-                <img th:src="/upload/${el.fileName}" />
+              <!--  <img th:src="/upload/${el.fileName}" /> -->
                 <p> <b>Просмотры: </b><span th:text = "${el.views}"/></p>
                 <a th:href = " '/blog/' + ${el.id}+'/edit'" class="btn btn-warning">Редактировать</a>
                 <form th:action=" '/blog/' + ${el.id}+'/remove'" method = "post">

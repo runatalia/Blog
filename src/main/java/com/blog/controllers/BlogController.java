@@ -52,21 +52,24 @@ public class BlogController {
 
     @PostMapping("/blog/add")
     public String addBlogPost(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, @RequestParam MultipartFile file, Model model) {
-          Post post = new Post(title, anons, full_text, path);
+          Post post = new Post(title, anons, full_text);
           try {
             if (!file.isEmpty()) {
                 File upLoadDir = new File(path);
                 if(!upLoadDir.exists()){
-                    upLoadDir.mkdir();
+                    upLoadDir.mkdirs();
                 }
                 String uuidFile = UUID.randomUUID().toString();
-                String resultFile = uuidFile + "."+file.getOriginalFilename();
-                file.transferTo(new File(resultFile));
-                post.setFileName(path+"/"+resultFile);
+                String resultFile = uuidFile +"."+file.getOriginalFilename();
+                 System.out.println(path+"\\"+resultFile);
+                file.transferTo(new File(path+"\\"+resultFile));
+                 System.out.println("ЗДесь все норм 4");
+                post.setFileName(resultFile);
+                System.out.println("Имя !!!!!!!!!!!!!!"+post.getFileName());
             } 
         }
           catch(IOException e){
-          System.out.println("Ошибка при загрузке файла");
+          System.out.println("Ошибка при загрузке файла"+e.getStackTrace());
           }
 
       
