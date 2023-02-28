@@ -1,11 +1,12 @@
 package com.blog.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "post")
@@ -14,12 +15,21 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @NotNull
+    @Min(4)
     private String title;
+
+    @NotNull
+    @Min(10)
     private String anons;
+
+    @NotNull
+    @Min(20)
     private String full_text;
     private int views;
     private String fileName;
-    
+
     public Post() {
     }
 
@@ -76,6 +86,5 @@ public class Post {
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
-    
 
 }

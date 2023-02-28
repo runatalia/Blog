@@ -61,15 +61,14 @@ public class BlogController {
                 }
                 String uuidFile = UUID.randomUUID().toString();
                 String resultFile = uuidFile +"."+file.getOriginalFilename();
-                 System.out.println(path+"\\"+resultFile);
+                 
                 file.transferTo(new File(path+"\\"+resultFile));
-                 System.out.println("ЗДесь все норм 4");
                 post.setFileName(resultFile);
-                System.out.println("Имя !!!!!!!!!!!!!!"+post.getFileName());
+                System.out.println(resultFile);
             } 
         }
           catch(IOException e){
-          System.out.println("Ошибка при загрузке файла"+e.getStackTrace());
+          System.out.println("Ошибка при загрузке файла "+e);
           }
 
       

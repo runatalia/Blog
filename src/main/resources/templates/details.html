@@ -16,8 +16,9 @@
             <div th:each = "el : ${post}" class = "alert alert-info mt-2">
                 <h3 th:text = "${el.title}"/>
                 <p th:text = "${el.full_text}"/>
-              <!--  <img th:src="/upload/${el.fileName}" /> -->
+                <img th:src="(${el.fileName}==null)?(@{/img/blog.jpg}):@{'/img/'+${el.fileName}}" width="221"  height="147"/>
                 <p> <b>Просмотры: </b><span th:text = "${el.views}"/></p>
+
                 <a th:href = " '/blog/' + ${el.id}+'/edit'" class="btn btn-warning">Редактировать</a>
                 <form th:action=" '/blog/' + ${el.id}+'/remove'" method = "post">
                     <button class="btn btn-warning" type="submit">Удалить</a>
