@@ -1,4 +1,5 @@
 
-FROM alpine:latest
-ADD target/blog-0.0.1-snapshot.jar app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
+FROM openjdk:19
+expose 8080
+ADD target/blog-docker.jar blog-docker.jar
+ENTRYPOINT ["java","-jar","blog-docker.jar"]
