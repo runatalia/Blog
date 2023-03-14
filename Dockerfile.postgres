@@ -1,0 +1,4 @@
+FROM postgres:latest
+ENTRYPOINT ["blog-docker.sh"]
+EXPOSE 5432
+CMD [ "postgres" ]
